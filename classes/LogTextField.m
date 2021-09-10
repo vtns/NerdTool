@@ -44,7 +44,9 @@
         defShadow = [[NSShadow alloc]init];
         [defShadow setShadowOffset:(NSSize){SHADOW_W,SHADOW_H}];
         [defShadow setShadowBlurRadius:SHADOW_RADIUS];
-//        [defShadow setShadowColor:[NSColor colorWithWhite:0.0f alpha:0.4f]];
+        if ([properties objectForKey:@"shadowColor"]) {
+            [defShadow setShadowColor:[NSUnarchiver unarchiveObjectWithData:[properties valueForKey:@"shadowColor"]]];
+        }
     }
     
     NSMutableParagraphStyle *myParagraphStyle = [[NSMutableParagraphStyle alloc]init];

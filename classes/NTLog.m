@@ -190,6 +190,7 @@
     [self addObserver:self forKeyPath:@"properties.stringEncoding" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.textColor" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.backgroundColor" options:0 context:NULL];
+    [self addObserver:self forKeyPath:@"properties.shadowColor" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.wrap" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.alignment" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.shadowText" options:0 context:NULL];
@@ -249,6 +250,7 @@
     [self removeObserver:self forKeyPath:@"properties.stringEncoding"];
     [self removeObserver:self forKeyPath:@"properties.textColor"];
     [self removeObserver:self forKeyPath:@"properties.backgroundColor"];
+    [self removeObserver:self forKeyPath:@"properties.shadowColor"];
     [self removeObserver:self forKeyPath:@"properties.wrap"];
     [self removeObserver:self forKeyPath:@"properties.alignment"];
     [self removeObserver:self forKeyPath:@"properties.shadowText"];

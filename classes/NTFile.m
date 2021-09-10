@@ -43,7 +43,9 @@
 - (NSDictionary *)defaultProperties
 {
     NSData *textColorData = [[NSUserDefaults standardUserDefaults]objectForKey:@"defaultFgColor"];
-    NSData *backgroundColorData = [[NSUserDefaults standardUserDefaults]objectForKey:@"defaultBgColor"]; 
+    NSData *backgroundColorData = [[NSUserDefaults standardUserDefaults]objectForKey:@"defaultBgColor"];
+    NSData *shadowColorData = [NSArchiver archivedDataWithRootObject:[NSColor colorWithWhite:0.0 alpha:0.5]];
+
     NSData *font = [NSArchiver archivedDataWithRootObject:[NSFont systemFontOfSize:[NSFont systemFontSize]]];
     
     NSDictionary *defaultProperties = [[NSDictionary alloc]initWithObjectsAndKeys:
@@ -62,6 +64,7 @@
                                        font,@"font",
                                        textColorData,@"textColor",
                                        backgroundColorData,@"backgroundColor",
+                                       shadowColorData,@"shadowColor",
                                        [NSNumber numberWithInt:NSASCIIStringEncoding],@"stringEncoding",
                                        [NSNumber numberWithBool:NO],@"wrap",
                                        [NSNumber numberWithBool:NO],@"shadowText",
