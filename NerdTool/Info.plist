@@ -19,16 +19,10 @@
 	<key>CFBundleSignature</key>
 	<string>ALOC</string>
 	<key>CFBundleVersion</key>
-	<string>0.8.1</string>
+	<string>0.8.2</string>
 	<key>NSMainNibFile</key>
 	<string>GeektoolPrefs</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUEnableSystemProfiling</key>
-	<false/>
-	<key>SUFeedURL</key>
-	<string>http://mutablecode.com/appcasts/nerdtool.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
 </dict>
 </plist>

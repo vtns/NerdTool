@@ -38,9 +38,9 @@
 #define MENU_BAR_HEIGHT 22
 
 // shadow
-#define SHADOW_W 3
-#define SHADOW_H -3
-#define SHADOW_RADIUS 3
+#define SHADOW_W (2)
+#define SHADOW_H (-2)
+#define SHADOW_RADIUS (3.5)
 
 // menu
 #define MENU_Y_OFFSET 40

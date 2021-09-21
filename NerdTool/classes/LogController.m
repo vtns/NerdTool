@@ -192,8 +192,8 @@
     NTGroup *parentGroup = [[groupController selectedObjects]objectAtIndex:0];
     if (_userInsert)
     {
-        [object setActive:[NSNumber numberWithBool:YES]];
-        [object setParentGroup:parentGroup];
+        [(NTLog*)object setActive:[NSNumber numberWithBool:YES]];
+        [(NTLog*)object setParentGroup:parentGroup];
     }
     [super insertObject:object atArrangedObjectIndex:index];
     

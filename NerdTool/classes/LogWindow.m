@@ -37,10 +37,12 @@
 
 - (void)setClickThrough:(BOOL)clickThrough
 {
+#if 0
     /* carbon */
     void *ref = [self windowRef];
     if (clickThrough) ChangeWindowAttributes(ref,kWindowIgnoreClicksAttribute,kWindowNoAttributes);
     else ChangeWindowAttributes(ref,kWindowNoAttributes,kWindowIgnoreClicksAttribute);
+#endif
     /* cocoa */
     [self setIgnoresMouseEvents:clickThrough];
 }

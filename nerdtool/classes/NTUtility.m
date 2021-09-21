@@ -66,6 +66,7 @@
                                        [NSNumber numberWithInt:NSASCIIStringEncoding],@"stringEncoding",
                                        [[NSUserDefaults standardUserDefaults]objectForKey:@"defaultFgColor"],@"textColor",
                                        [[NSUserDefaults standardUserDefaults]objectForKey:@"defaultBgColor"],@"backgroundColor",
+                                       [NSArchiver archivedDataWithRootObject:[NSColor colorWithWhite:0.0 alpha:0.5]],@"shadowColor",
                                        [NSNumber numberWithBool:NO],@"wrap",
                                        [NSNumber numberWithBool:NO],@"shadowText",
                                        [NSNumber numberWithBool:NO],@"shadowWindow",

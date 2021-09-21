@@ -26,7 +26,6 @@
 		0A7D388A0FD805FA0070D678 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7D38880FD805FA0070D678 /* Carbon.framework */; };
 		0A88EC061017734C00EF5B6F /* killROProcess.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0A88EC051017734C00EF5B6F /* killROProcess.sh */; };
 		0A88EC83101778B200EF5B6F /* NerdToolRO.app in Resources */ = {isa = PBXBuildFile; fileRef = 0AB89EEB1014A5C4006FE649 /* NerdToolRO.app */; };
-		0A88EE3F1019694000EF5B6F /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A88EE3E1019694000EF5B6F /* dsa_pub.pem */; };
 		0A904BC2100D8EAC009A2F5E /* AIQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A904BA0100D8EAC009A2F5E /* AIQuartzView.m */; };
 		0A904BC3100D8EAC009A2F5E /* AJRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A904BA2100D8EAC009A2F5E /* AJRScrollView.m */; };
 		0A904BC4100D8EAC009A2F5E /* GeekToolPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A904BA6100D8EAC009A2F5E /* GeekToolPrefs.m */; };
@@ -66,8 +65,6 @@
 		0AA4E0A710165DD800C010F3 /* imageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8A22A101604D3006FE649 /* imageWindow.xib */; };
 		0AA4E0A810165DD800C010F3 /* quartzWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8A2ED101616E2006FE649 /* quartzWindow.xib */; };
 		0AA4E0A910165DD800C010F3 /* shellWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB876F5101050610000E274 /* shellWindow.xib */; };
-		0AB87596101008150000E274 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB87595101008150000E274 /* Sparkle.framework */; };
-		0AB875A91010086C0000E274 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0AB87595101008150000E274 /* Sparkle.framework */; };
 		0AB876F7101050610000E274 /* shellWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB876F5101050610000E274 /* shellWindow.xib */; };
 		0AB877B4101172B10000E274 /* shellPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB877B2101172B10000E274 /* shellPrefs.xib */; };
 		0AB877ED1011853B0000E274 /* imagePrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB877EB1011853B0000E274 /* imagePrefs.xib */; };
@@ -117,8 +114,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0AB875A91010086C0000E274 /* Sparkle.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A73A5B126E13D2300040772 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -142,7 +148,6 @@
 		0A7D38870FD805FA0070D678 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		0A7D38880FD805FA0070D678 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		0A88EC051017734C00EF5B6F /* killROProcess.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = killROProcess.sh; sourceTree = "<group>"; };
-		0A88EE3E1019694000EF5B6F /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		0A904B9F100D8EAC009A2F5E /* AIQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIQuartzView.h; path = classes/AIQuartzView.h; sourceTree = "<group>"; };
 		0A904BA0100D8EAC009A2F5E /* AIQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIQuartzView.m; path = classes/AIQuartzView.m; sourceTree = "<group>"; };
 		0A904BA1100D8EAC009A2F5E /* AJRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJRScrollView.h; path = classes/AJRScrollView.h; sourceTree = "<group>"; };
@@ -179,15 +184,14 @@
 		0A904BD8100D8F2B009A2F5E /* defaultSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultSuccess.png; path = resources/defaultSuccess.png; sourceTree = "<group>"; };
 		0A904BD9100D8F2B009A2F5E /* delete.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = delete.tif; path = resources/delete.tif; sourceTree = "<group>"; };
 		0A904BDB100D8F2B009A2F5E /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GeektoolPrefs.xib; sourceTree = "<group>"; };
-		0A904BDD100D8F2B009A2F5E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0A904BDF100D8F2B009A2F5E /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A904BDD100D8F2B009A2F5E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A904BDF100D8F2B009A2F5E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0A904BE4100D8F2B009A2F5E /* GeektoolPreferencePanePref.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = GeektoolPreferencePanePref.tiff; path = resources/GeektoolPreferencePanePref.tiff; sourceTree = "<group>"; };
 		0A904BE5100D8F2B009A2F5E /* GeekToolPrefs.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = GeekToolPrefs.tiff; path = resources/GeekToolPrefs.tiff; sourceTree = "<group>"; };
 		0A904BE6100D8F2B009A2F5E /* justified.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = justified.png; path = resources/justified.png; sourceTree = "<group>"; };
 		0A904BE7100D8F2B009A2F5E /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = resources/left.png; sourceTree = "<group>"; };
 		0A904BF5100D8F2B009A2F5E /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = resources/right.png; sourceTree = "<group>"; };
 		0A904C29100D9794009A2F5E /* NerdTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AB87595101008150000E274 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		0AB876F6101050610000E274 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/shellWindow.xib; sourceTree = "<group>"; };
 		0AB877B3101172B10000E274 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/shellPrefs.xib; sourceTree = "<group>"; };
 		0AB877EC1011853B0000E274 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/imagePrefs.xib; sourceTree = "<group>"; };
@@ -242,7 +246,6 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0A7D38890FD805FA0070D678 /* Quartz.framework in Frameworks */,
 				0A7D388A0FD805FA0070D678 /* Carbon.framework in Frameworks */,
-				0AB87596101008150000E274 /* Sparkle.framework in Frameworks */,
 				0A42234F1021300B0074C19D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				0A42234E1021300B0074C19D /* WebKit.framework */,
-				0AB87595101008150000E274 /* Sparkle.framework */,
 				0A7D38870FD805FA0070D678 /* Quartz.framework */,
 				0A7D38880FD805FA0070D678 /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
@@ -482,7 +484,6 @@
 			children = (
 				0A0BC469102A0F0200716B75 /* changelog.txt */,
 				0A0BC45D102A09A900716B75 /* readme.txt */,
-				0A88EE3E1019694000EF5B6F /* dsa_pub.pem */,
 				0AB89EED1014A5C4006FE649 /* NerdToolRO-Info.plist */,
 				0AB89D181012F9F4006FE649 /* Credits.rtf */,
 				0AB89D1B1012FC9A006FE649 /* COPYING.txt */,
@@ -524,6 +525,7 @@
 				0AB89EE71014A5C4006FE649 /* Resources */,
 				0AB89EE81014A5C4006FE649 /* Sources */,
 				0AB89EE91014A5C4006FE649 /* Frameworks */,
+				4A73A5B126E13D2300040772 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -626,7 +628,6 @@
 				0AB8A2D210161421006FE649 /* NTRO.xib in Resources */,
 				0AB8A2EF101616E2006FE649 /* quartzWindow.xib in Resources */,
 				0A88EC061017734C00EF5B6F /* killROProcess.sh in Resources */,
-				0A88EE3F1019694000EF5B6F /* dsa_pub.pem in Resources */,
 				0A42233C10212EE60074C19D /* webWindow.xib in Resources */,
 				0A4223FF102130900074C19D /* webPrefs.xib in Resources */,
 				0A0BC45E102A09A900716B75 /* readme.txt in Resources */,
@@ -829,6 +830,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -836,6 +841,8 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "NerdToolRO-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -852,11 +859,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "NerdToolRO-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -875,7 +888,8 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -884,6 +898,7 @@
 				GCC_PREFIX_HEADER = NerdTool_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = NerdTool;
 			};
 			name = Debug;
@@ -895,13 +910,15 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = NerdTool_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = NerdTool;
 			};
 			name = Release;
@@ -909,7 +926,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -922,7 +939,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

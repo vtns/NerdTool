@@ -17,6 +17,8 @@
 
 #import "CGSPrivate.h"
 
+#import <AppKit/AppKit.h>
+
 @implementation GeekToolPrefs
 
 @synthesize groups;
@@ -165,7 +167,9 @@
     {
         NSRect visibleFrame = [[screens objectAtIndex:i]frame];
         
-        if (i == 0) visibleFrame.size.height -= [NSMenuView menuBarHeight];
+        CGFloat menuBarHeight = [[[NSApplication sharedApplication] mainMenu] menuBarHeight];
+
+        if (i == 0) visibleFrame.size.height -= menuBarHeight;
         
         NSWindow *exposeBorderWindow = [[NSWindow alloc]initWithContentRect:visibleFrame styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO screen:[screens objectAtIndex:0]];
         [exposeBorderWindow setDelegate:self];

@@ -18,25 +18,25 @@
 
 @implementation NTLog
 
-@synthesize properties;
-@synthesize active;
-@synthesize parentGroup;
+@synthesize properties=properties;
+@synthesize active=active;
+@synthesize parentGroup=parentGroup;
 
-@synthesize windowController;
-@synthesize window;
+@synthesize windowController=windowController;
+@synthesize window=window;
 
-@synthesize prefsView;
+@synthesize prefsView=prefsView;
 
-@synthesize highlightSender;
-@synthesize postActivationRequest;
-@synthesize _isBeingDragged;
+@synthesize highlightSender=highlightSender;
+@synthesize postActivationRequest=postActivationRequest;
+@synthesize _isBeingDragged=_isBeingDragged;
 
-@synthesize arguments;
-@synthesize env;
-@synthesize timer;
-@synthesize task;
+@synthesize arguments=arguments;
+@synthesize env=env;
+@synthesize timer=timer;
+@synthesize task=task;
 
-@synthesize lastRecievedString;
+@synthesize lastRecievedString=lastRecievedString;
 
 #pragma mark Properties
 // Subclasses would probably want to override the following methods
@@ -190,6 +190,7 @@
     [self addObserver:self forKeyPath:@"properties.stringEncoding" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.textColor" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.backgroundColor" options:0 context:NULL];
+    [self addObserver:self forKeyPath:@"properties.shadowColor" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.wrap" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.alignment" options:0 context:NULL];
     [self addObserver:self forKeyPath:@"properties.shadowText" options:0 context:NULL];
@@ -249,6 +250,7 @@
     [self removeObserver:self forKeyPath:@"properties.stringEncoding"];
     [self removeObserver:self forKeyPath:@"properties.textColor"];
     [self removeObserver:self forKeyPath:@"properties.backgroundColor"];
+    [self removeObserver:self forKeyPath:@"properties.shadowColor"];
     [self removeObserver:self forKeyPath:@"properties.wrap"];
     [self removeObserver:self forKeyPath:@"properties.alignment"];
     [self removeObserver:self forKeyPath:@"properties.shadowText"];
@@ -308,6 +310,11 @@
         [self addObserver:self forKeyPath:@"properties.h" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
         needCoordObservers = NO;
     }
+}
+
+- (BOOL)_isBeingDragged
+{
+    return _isBeingDragged;
 }
 
 #pragma mark -
@@ -385,6 +392,11 @@
     task = [newTask retain];
 }
 
+- (NSTask*)task
+{
+    return [[task retain] autorelease];
+}
+
 - (void)setTimer:(NSTimer*)newTimer
 {
     [timer autorelease];
@@ -395,6 +407,12 @@
     }
     timer = [newTimer retain];
 }
+
+- (NSTimer*)timer
+{
+    return [[timer retain] autorelease];
+}
+
 
 - (void)killTimer
 {
@@ -407,11 +425,28 @@
     int refreshTime = [[self properties]integerForKey:@"refresh"];
     BOOL timerRepeats = refreshTime?YES:NO;
     
-    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:refreshTime target:self selector:@selector(updateCommand:) userInfo:nil repeats:timerRepeats]];
+    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:refreshTime target:self selector:@selector(timerFired:) userInfo:nil repeats:timerRepeats]];
     [timer fire];
     
     if (timerRepeats) [self release]; // since timer repeats, self is retained. we don't want this
     else [self setTimer:nil];
+}
+
+- (void)timerFired:(NSTimer*)timer
+{
+    [self performSelector:@selector(updateCommand:) withObject:timer];
+    int refreshTime = [timer timeInterval];
+    if (refreshTime && (3600 % refreshTime) == 0)
+    {
+        // when refreshTime is divisor of an hour, adjust the fire time to exact multiple of refreshTime
+        NSTimeInterval nextTime = [[NSDate now] timeIntervalSinceReferenceDate];
+        nextTime = floor(nextTime / refreshTime) * refreshTime;
+        while (nextTime <= [[NSDate now] timeIntervalSinceReferenceDate])
+        {
+            nextTime += refreshTime;
+        }
+        [timer setFireDate:[NSDate dateWithTimeIntervalSinceReferenceDate:nextTime]];
+    }
 }
 
 #pragma mark Window Management

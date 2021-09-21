@@ -55,6 +55,9 @@
                 defShadow = [[NSShadow alloc]init];
                 [defShadow setShadowOffset:(NSSize){SHADOW_W,SHADOW_H}];
                 [defShadow setShadowBlurRadius:SHADOW_RADIUS];
+                if ([[firstLog properties]objectForKey:@"shadowColor"]) {
+                    [defShadow setShadowColor:[NSUnarchiver unarchiveObjectWithData:[[firstLog properties]valueForKey:@"shadowColor"]]];
+                }
             }
             stringToPrint = [NSString stringWithFormat:@"%@",[font displayName]];
         }

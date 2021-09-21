@@ -1,0 +1,10 @@
+Recent changes
+0.8.2
+ Change target OS version to 10.15
+ Fix table view background color to support Dark Mode
+
+How to use
+
+ Build NerdTool.app using build.sh
+ Move build/Release/NerdTool.app to your application folder
+ NerdTool itself is very simular to GeekTool

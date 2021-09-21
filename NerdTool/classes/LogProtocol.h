@@ -14,8 +14,8 @@
 
 // Is TRUE if containing group is active.
 //@property (copy) NSNumber *active;
-- (void)setActive:(NSNumber*)var;
-- (NSNumber*)active;
+- (void)setLogActive:(NSNumber*)var;
+- (NSNumber*)logActive;
 
 // Highlights log window. Sender is passed so that the log can recall the sending method if the log window was not instantiated at that time.
 - (void)setHighlighted:(BOOL)val from:(id)sender;
