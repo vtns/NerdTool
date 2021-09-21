@@ -425,11 +425,28 @@
     int refreshTime = [[self properties]integerForKey:@"refresh"];
     BOOL timerRepeats = refreshTime?YES:NO;
     
-    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:refreshTime target:self selector:@selector(updateCommand:) userInfo:nil repeats:timerRepeats]];
+    [self setTimer:[NSTimer scheduledTimerWithTimeInterval:refreshTime target:self selector:@selector(timerFired:) userInfo:nil repeats:timerRepeats]];
     [timer fire];
     
     if (timerRepeats) [self release]; // since timer repeats, self is retained. we don't want this
     else [self setTimer:nil];
+}
+
+- (void)timerFired:(NSTimer*)timer
+{
+    [self performSelector:@selector(updateCommand:) withObject:timer];
+    int refreshTime = [timer timeInterval];
+    if (refreshTime && (3600 % refreshTime) == 0)
+    {
+        // when refreshTime is divisor of an hour, adjust the fire time to exact multiple of refreshTime
+        NSTimeInterval nextTime = [[NSDate now] timeIntervalSinceReferenceDate];
+        nextTime = floor(nextTime / refreshTime) * refreshTime;
+        while (nextTime <= [[NSDate now] timeIntervalSinceReferenceDate])
+        {
+            nextTime += refreshTime;
+        }
+        [timer setFireDate:[NSDate dateWithTimeIntervalSinceReferenceDate:nextTime]];
+    }
 }
 
 #pragma mark Window Management
