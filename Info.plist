@@ -24,9 +24,5 @@
 	<string>GeektoolPrefs</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUEnableSystemProfiling</key>
-	<false/>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
 </dict>
 </plist>
