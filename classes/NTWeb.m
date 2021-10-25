@@ -143,8 +143,11 @@
 {        
     highlighted = NO;
     if ([[properties objectForKey:@"webURL"]isEqual:@""]) return;
+    [[window webView]setDrawsBackground:NO];
     [[window webView]setFrameLoadDelegate:self];
     [[window scrollView]setDocumentView:[window webView]];
+    [[window scrollView]setDrawsBackground:NO];
+//    [[[window scrollView]contentView]setDrawsBackground:NO];
     needsScroll = YES;
     [[[window webView]mainFrame]loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[properties objectForKey:@"webURL"]]]];
 }
